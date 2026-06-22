@@ -1,11 +1,8 @@
 package io.github.kevinah95.kmpkoin.data
 
-class UserViewModel(
-    private val userRepository: UserRepository
-) {
+import androidx.lifecycle.ViewModel
 
-    fun getGreeting(): String =
-        "Hello, ${userRepository.getUsers().firstOrNull()?.name ?: "Guest"}!"
-
+class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
+    fun getGreeting(): String = "Hello, ${userRepository.getUsers().firstOrNull()?.name ?: "Guest"}!"
     fun getUsers() = userRepository.getUsers()
 }
